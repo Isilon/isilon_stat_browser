@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Meta-ThinLF';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/MtThLf__.ttf);
+}
+
+@font-face {
+  font-family: 'Meta-NormalLF';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/MtNoLFRo.ttf);
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+.no-transition {
+  -webkit-transition: height 0.01s;
+  -moz-transition: height 0.01s;
+  -ms-transition: height 0.01s;
+  -o-transition: height 0.01s;
+  transition: height 0.01s;
+}
+
+html {
+  background-color: #BABCBE;
+}
+
+
+h1 {
+  font-family: 'Meta-NormalLF';
+  background-color: #2C95DD;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+h2 {
+  font-family: 'Meta-NormalLF';
+}
+
+input {
+  font-weight: bolder;
+}
+
+.category_main {
+  margin: 5px;
+  padding: 10px;
+  border: 3px solid #FFFFFF;
+  background-color: #F0F0F0;
+}
+
+.category {
+  font-family: 'Meta-NormalLF';
+  font-size: 1.8em;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.category_description {
+  font-family: 'Meta-NormalLF';
+  font-size: 1.1em;
+}
+
+.key {
+  font-family: 'Meta-NormalLF';
+  font-size: 1.5em;
+  margin: 15px;
+}
+
+.subcontents {
+  display: none;
+}
+
+.table {
+  font-family: 'Meta-NormalLF';
+}
+
+.subcontents_toggle {
+  height: 48px;
+  width: 48px;
+  color: #2C95DD;
+}
+
+.icon {
+  vertical-align: middle;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.filter-control{
+
+}
+
+.btn-tag {
+  margin-bottom: 5px;
+}
+
+.clickable {
+  cursor: pointer;
+}

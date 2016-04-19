@@ -1,0 +1,695 @@
+###############################################################################
+# This file contains the key tagging inputs that get parsed into key_tags.json
+#
+# Stanzas are separated by 6 colons-> :::::
+# Attr keys are declared with 3 colons-> :::keyname
+# Following a key attr declaration is a list of attrs to be assigned
+# The keys and attrs will be assigned to the stat keys listed under the key named keys
+# Regex stat key name matching is also permitted.
+#
+#
+# -- Exact stat key name matching --
+# :::keys
+# node.sensors.key.name
+#
+# -- Regex stat key name matching
+# :::re-keys
+# node\.sensors.tem.*
+#
+# Entries should be ordered from most to least specific. The first entry that
+# matches a particular key will assign the category. So placing more general
+# matches later in the file ensures that keys are assigned to the most specific
+# match possible.
+
+
+###############################################################################
+#    ____
+#   / ___|  ___ _ __  ___  ___  _ __ ___
+#   \___ \ / _ \ '_ \/ __|/ _ \| '__/ __|
+#    ___) |  __/ | | \__ \ (_) | |  \__ \
+#   |____/ \___|_| |_|___/\___/|_|  |___/
+#
+
+::::::
+:::super
+Sensors
+:::category description
+Stats for sensors related to power, temperature, and altitude.
+
+::::::
+:::super
+Sensors
+:::sub
+Power
+:::re-keys
+^node.sensor.power.*
+:::category description
+Power sensor information.
+
+::::::
+:::super
+Sensors
+:::sub
+Miscellaneous
+:::re-keys
+^node.sensor.misc.*
+:::category description
+Miscellaneous sensor information.
+
+::::::
+:::super
+Sensors
+:::sub
+Altitude
+:::re-keys
+^node.sensor.altitude.*
+:::category description
+Altitude sensor information (if node so equipped).
+
+::::::
+:::super
+Sensors
+:::sub
+Current (Amperage)
+:::re-keys
+^node.sensor.curr.*
+:::category description
+Sensors that display current (amperage) information about various components.
+
+::::::
+:::super
+Sensors
+:::sub
+Fans
+:::re-keys
+^node.sensor.fan.*
+:::category description
+Fan speed sensors.
+
+::::::
+:::super
+Sensors
+:::sub
+Temperature
+:::re-keys
+^node.sensor.temp.*
+:::category description
+Temperature sensors for various components.
+
+::::::
+:::super
+Sensors
+:::sub
+Voltage
+:::re-keys
+^node.sensor.volt.*
+:::category description
+Voltage sensor for various components.
+
+###############################################################################
+#     ____           _
+#    / ___|__ _  ___| |__   ___
+#   | |   / _` |/ __| '_ \ / _ \
+#   | |__| (_| | (__| | | |  __/
+#    \____\__,_|\___|_| |_|\___|
+#
+
+::::::
+:::super
+Cache
+:::category description
+Statistics related to L1, L2, and L3 Caches.
+
+::::::
+:::super
+Cache
+:::sub
+L1 Cache
+:::category description
+L1 cache stats
+:::re-keys
+^node.ifs.cache.l1.*
+
+::::::
+:::super
+Cache
+:::sub
+L2 Cache
+:::category description
+L2 cache stats
+:::re-keys
+^node.ifs.cache.l2.*
+
+::::::
+:::super
+Cache
+:::sub
+L3 Cache
+:::re-keys
+^node.ifs.cache.l3.*
+:::category description
+L3 cache stats
+
+::::::
+:::super
+Cache
+:::sub
+Other
+:::re-keys
+^node.ifs.cache.*
+:::category description
+Miscelaneous Other Cache Stats
+
+
+###############################################################################
+#     ____ _ _            _
+#    / ___| (_) ___ _ __ | |_
+#   | |   | | |/ _ \ '_ \| __|
+#   | |___| | |  __/ | | | |_
+#    \____|_|_|\___|_| |_|\__|
+#
+
+
+::::::
+:::super
+Client
+:::category description
+Client statistics showing per-client protocol activity.
+
+::::::
+:::super
+Client
+:::sub
+Top-N Clients
+:::re-keys
+node.clientstats.proto.*
+:::category description
+Top-N individual client statistics per protocol and node.
+
+::::::
+:::super
+Client
+:::sub
+Active
+:::re-keys
+node.clientstats.active.*
+:::category description
+Active client counts per protocol and node.
+
+::::::
+:::super
+Client
+:::sub
+Connected
+:::re-keys
+^node.clientstats.connected.*
+:::category description
+Connected client counts per protocol and node.
+
+::::::
+:::super
+Client
+:::sub
+Disk IO
+:::re-keys
+^node.clientstats.io
+:::category description
+Per client per disk IO Statistics.
+
+###############################################################################
+#     ____ ____  _   _
+#    / ___|  _ \| | | |
+#   | |   | |_) | | | |
+#   | |___|  __/| |_| |
+#    \____|_|    \___/
+#
+
+::::::
+:::super
+CPU
+:::category description
+CPU utilization statistics.
+
+::::::
+:::super
+CPU
+:::sub
+Node
+:::category description
+CPU statistics by node.
+:::re-keys
+^node.cpu
+
+::::::
+:::super
+CPU
+:::sub
+Cluster
+:::category description
+CPU statistics averaged across all nodes in the cluster.
+:::re-keys
+^cluster.cpu
+
+###############################################################################
+#    ____           _
+#   |  _ \  ___  __| |_   _ _ __   ___
+#   | | | |/ _ \/ _` | | | | '_ \ / _ \
+#   | |_| |  __/ (_| | |_| | |_) |  __/
+#   |____/ \___|\__,_|\__,_| .__/ \___|
+#                          |_|
+#
+
+::::::
+:::super
+Deduplication
+:::keys
+cluster.dedupe.estimated.deduplicated.bytes
+cluster.dedupe.estimated.saved.bytes
+cluster.dedupe.logical.deduplicated.bytes
+cluster.dedupe.logical.saved.bytes
+:::re-keys
+cluster.dedupe
+:::category description
+Statistics related to the file deduplication process.
+
+###############################################################################
+#    ____  _     _
+#   |  _ \(_)___| | __
+#   | | | | / __| |/ /
+#   | |_| | \__ \   <
+#   |____/|_|___/_|\_\
+#
+
+::::::
+:::super
+Disk
+:::category description
+Disk status and activity statistics
+
+::::::
+:::super
+Disk
+:::sub
+Cluster
+:::re-keys
+^cluster.disk\..*
+:::category description
+Disk statistics averaged across all disks in the cluster.
+
+::::::
+:::super
+Disk
+:::sub
+Node
+:::re-keys
+^node.disk\..*
+:::category description
+Disk statistics per node and per disk.
+
+
+
+###############################################################################
+#    _   _      _                      _
+#   | \ | | ___| |___      _____  _ __| | __
+#   |  \| |/ _ \ __\ \ /\ / / _ \| '__| |/ /
+#   | |\  |  __/ |_ \ V  V / (_) | |  |   <
+#   |_| \_|\___|\__| \_/\_/ \___/|_|  |_|\_\
+#
+
+
+::::::
+:::super
+Network
+:::category description
+Network statistics for both internal (back-end) and external (front-end) network.
+
+::::::
+:::super
+Network
+:::sub
+Internal
+:::category description
+Internal (back-end) network statistics.
+
+::::::
+:::super
+Network
+:::sub
+Internal
+:::subsub
+Node
+:::re-keys
+^node.net.iface.
+^node.net.int.
+:::category description
+Internal NIC counters by Node
+
+::::::
+:::super
+Network
+:::sub
+Internal
+:::subsub
+Cluster
+:::re-keys
+^cluster.net.int\..*
+:::category description
+Internal NIC counters by Cluster
+
+
+::::::
+:::super
+Network
+:::sub
+External
+:::category description
+External (front-end) network statistics.
+
+::::::
+:::super
+Network
+:::sub
+External
+:::subsub
+Node
+:::re-keys
+^node.net.ext\..*
+:::category description
+External NIC counters by Node
+
+::::::
+:::super
+Network
+:::sub
+External
+:::subsub
+Cluster
+:::re-keys
+^cluster.net.ext\..*
+:::category description
+External NIC counters by Cluster
+
+
+
+###############################################################################
+#    _____ _ _        ____            _
+#   |  ___(_) | ___  / ___| _   _ ___| |_ ___ _ __ ___
+#   | |_  | | |/ _ \ \___ \| | | / __| __/ _ \ '_ ` _ \
+#   |  _| | | |  __/  ___) | |_| \__ \ ||  __/ | | | | |
+#   |_|   |_|_|\___| |____/ \__, |___/\__\___|_| |_| |_|
+#                           |___/
+
+::::::
+:::super
+File System
+:::category description
+OneFS File System Statistics.
+
+::::::
+:::super
+File System
+:::sub
+Cluster
+:::category description
+File system statistics averaged across all nodes in the cluster.
+
+::::::
+:::super
+File System
+:::sub
+Cluster
+:::subsub
+Throughput
+:::re-keys
+^ifs.bytes.in.*
+^ifs.bytes.out.*
+:::category description
+File system throughput by cluster.
+
+
+::::::
+:::super
+File System
+:::sub
+Cluster
+:::subsub
+Capacity
+:::re-keys
+^ifs..*bytes..*
+:::category description
+Cluster capacity.
+
+::::::
+:::super
+File System
+:::sub
+Cluster
+:::subsub
+Other
+:::re-keys
+^ifs..*
+:::category description
+Other miscelaneous cluster file system stats.
+
+::::::
+:::super
+File System
+:::sub
+Node
+:::category description
+File system statistics for each node in the cluster.
+
+::::::
+:::super
+File System
+:::sub
+Node
+:::subsub
+Throughput
+:::re-keys
+^node.ifs.bytes.in.*
+^node.ifs.bytes.out.*
+:::category description
+File system throughput by node.
+
+::::::
+:::super
+File System
+:::sub
+Node
+:::subsub
+Capacity
+:::re-keys
+^node.ifs..*bytes..*
+:::category description
+File system capacity by node.
+
+
+::::::
+:::super
+File System
+:::sub
+Node
+:::subsub
+File Heat
+:::re-keys
+^node.ifs.heat..*
+:::category description
+File system event rates by file.
+
+
+::::::
+:::super
+File System
+:::sub
+Node
+:::subsub
+Other
+:::re-keys
+^node.ifs..*
+:::category description
+Other miscelaneous node file system stats
+
+
+###############################################################################
+#        _       _       _____             _
+#       | | ___ | |__   | ____|_ __   __ _(_)_ __   ___
+#    _  | |/ _ \| '_ \  |  _| | '_ \ / _` | | '_ \ / _ \
+#   | |_| | (_) | |_) | | |___| | | | (_| | | | | |  __/
+#    \___/ \___/|_.__/  |_____|_| |_|\__, |_|_| |_|\___|
+#                                    |___/
+
+::::::
+:::super
+Job Engine
+:::keys
+node.je.num_workers
+:::category description
+Job engine statistics.
+
+
+###############################################################################
+#    ____            _                  _
+#   |  _ \ _ __ ___ | |_ ___   ___ ___ | |___
+#   | |_) | '__/ _ \| __/ _ \ / __/ _ \| / __|
+#   |  __/| | | (_) | || (_) | (_| (_) | \__ \
+#   |_|   |_|  \___/ \__\___/ \___\___/|_|___/
+#
+
+::::::
+:::super
+Protocols
+:::category description
+Protocol performance statistics.
+
+::::::
+:::super
+Protocols
+:::sub
+Node
+:::re-keys
+^node.protostats\..*
+:::category description
+Per protocol performance by Node.
+
+::::::
+:::super
+Protocols
+:::sub
+Cluster
+:::re-keys
+^cluster.protostats\..*
+:::category description
+Per protocol performance by Cluster.
+
+
+################################################################################
+#       _             _ _ _
+#      / \  _   _  __| (_) |_
+#     / _ \| | | |/ _` | | __|
+#    / ___ \ |_| | (_| | | |_
+#   /_/   \_\__,_|\__,_|_|\__|
+#
+#
+
+::::::
+:::super
+Audit
+:::re-keys
+^node.audit.
+:::category description
+Statistics related to the auditing system
+
+################################################################################
+#    ____            _
+#   / ___| _   _ ___| |_ ___ _ __ ___
+#   \___ \| | | / __| __/ _ \ '_ ` _ \
+#    ___) | |_| \__ \ ||  __/ | | | | |
+#   |____/ \__, |___/\__\___|_| |_| |_|
+#          |___/
+
+::::::
+:::super
+System
+:::category description
+OneFS and System level statistics
+
+::::::
+:::super
+System
+:::sub
+Node Info and Status
+:::re-keys
+^cluster.node.
+^node.diskless
+^node.open.files
+^node.uptime
+^node.boottime
+^node.thread.stats
+^node.process.count
+^node.health
+
+:::category description
+Cluster node status, counts, and info statistics
+
+::::::
+:::super
+System
+:::sub
+System Volumes
+:::re-keys
+^node.sysfs
+:::category description
+Statistics related to the root OS filesystem volumes on each node.
+
+::::::
+:::super
+System
+:::sub
+Load
+:::re-keys
+^node.load
+:::category description
+System load averages
+
+::::::
+:::super
+System
+:::sub
+Memory and Internal Cache Usage
+:::re-keys
+^node.memory
+^node.malloc
+^node.dfm
+^node.ifm
+^node.mds
+^node.uma
+^node.stf.cache
+^node.rp.stats
+:::category description
+System memory usage and allocation statistics
+
+::::::
+:::super
+System
+:::sub
+NFS Operational
+:::re-keys
+^node.nfs
+:::category description
+Low level NFS protocol operational statistics.
+
+::::::
+:::super
+System
+:::sub
+NVRAM
+:::re-keys
+^node.nvram
+:::category description
+Statistics on the NVRAM hardware and system
+
+::::::
+:::super
+System
+:::sub
+Cluster Info and Status
+:::re-keys
+^cluster.group
+^cluster.alert.info
+^cluster.health
+
+:::category description
+Cluster-wide health and alerts
+
+::::::
+:::super
+System
+:::sub
+TCP/IP
+:::re-keys
+^node.tcp
+^node.ip.stats
+:::category description
+TCP and IP statistics
+

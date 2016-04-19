@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>EMC | Isilon OneFS Statistics</title>
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/selectize.bootstrap3.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container-fluid no-transition">
+      <div class="row">
+        <h1 class="col-md-12">EMC | Isilon OneFS Statistics</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form class="form-inline" onsubmit="return false;">
+            <div class="input-group">
+              <div class="input-group" onSubmit="return false;">
+                <span class="input-group-addon">Search</span>
+                <input id="text_filter" type="text" class="form-control" autocomplete="off"
+                  placeholder="search keys" size="40"/>
+              </div>
+              <div class="input-group-btn" onSubmit="return false;">
+                <button id="tagDropdown" type="button" class="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tags <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="tagDropdown">
+                  {% for tag in tags %}
+                  <li><a href="#" class="btn-tag">{{ tag }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Categories</h2>
+        </div>
+      </div>
+      <!-- Main key view -->
+      <div class="row category_container">
+        <div class="col-md-12">
+          {% for category, data in categories.items() %}
+            <!-- BEGIN SUPER CATEGORY TEMPLATE -->
+            <div class="row category_main" id="{{ cat_mappings[category] }}">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12 category_head clickable">
+                    <button class="subcontents_toggle btn btn-link btn-lg" id="toggle_{{ cat_mappings[category] }}" type="button">
+                    <span class="icon"><i class="material-icons">add_circle_outline</i></span>
+                  </button><span class="category clickable sort-key">{{ category }}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 category_description">
+                    {{ data.description }}
+                  </div>
+                </div>
+                <div class="row category_subcontents subcontents category_container key_container">
+                  <div class="col-md-11 col-md-offset-1">
+                    <!-- Subcat BEGIN -->
+                    {% for subcategory, data in categories[category]['categories'].items() %}
+                    <div class="row category_main" id="{{ cat_mappings[category + '-' + subcategory] }}">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-12 category_head clickable">
+                            <button class="subcontents_toggle btn btn-link btn-lg" id="toggle_{{ cat_mappings[subcategory] }}" type="button">
+                            <span class="icon"><i class="material-icons">add_circle_outline</i></span>
+                          </button><span class="category clickable sort-key">{{ subcategory }}</span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 category_description">
+                            {{ data.description }}
+                          </div>
+                        </div>
+                        <div class="row category_subcontents subcontents category_container key_container">
+                          <div class="col-md-11 col-md-offset-1">
+                            <!-- Subsubcat BEGIN -->
+                            {% for subsubcategory, subdata in categories[category]['categories'][subcategory]['categories'].items() %}
+                            <div class="row category_main" id="{{ cat_mappings[category + '-' + subcategory + '-' + subsubcategory] }}">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-12 category_head clickable">
+                                    <button class="subcontents_toggle btn btn-link btn-lg" id="toggle_{{ cat_mappings[subsubcategory] }}" type="button">
+                                    <span class="icon"><i class="material-icons">add_circle_outline</i></span>
+                                  </button><span class="category clickable sort-key">{{ subsubcategory }}</span>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12 category_description">
+                                    {{ subdata.description }}
+                                  </div>
+                                </div>
+                                <div class="row category_subcontents subcontents key_container">
+                                  <div class="col-md-11 col-md-offset-1">
+
+                                    <!-- subcat keys BEGIN -->
+                                    {% for key in categories[category]['categories'][subcategory]['categories'][subsubcategory]['keys'] %}
+                                    {% include 'key_template.html' %}
+                                    {% endfor %}
+                                    <!-- subcat keys END -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {% endfor %}
+                            <!-- Subsubcat END -->
+                            <!-- subcat keys BEGIN -->
+                            {% for key in categories[category]['categories'][subcategory]['keys'] %}
+                            {% include 'key_template.html' %}
+                            {% endfor %}
+                            <!-- subcat keys END -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Subcat END -->
+                    <!-- super category keys BEGIN -->
+                    {% for key in categories[category]['keys'] %}
+                    {% include 'key_template.html' %}
+                    {% endfor %}
+                    <!-- super category keys END -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END SUPER CATEGORY TEMPLATE -->
+            {% endfor %}
+          </div>
+        </div> <!-- end of main key view -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-right">
+              Key list  retreived from OneFS {{ cluster['release'] }} <br>
+              {% if cluster['host'] != None %}
+              at {{ cluster['host'] }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- end of container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.typewatch.js"></script>
+    <script src="js/app_lib.js"></script>
+    <script src="js/app_filter_lib.js"></script>
+    <script src="js/app_filter.js"></script>
+    <script src="js/app_tags.js"></script>
+    <script src="js/app_papi_link.js"></script>
+    <script src="js/app_tooltips.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/keys.js"></script>
+
+    <!-- Modal for cluster IP/hostname input -->
+    <div class="modal fade" id="modal_cluster"tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Enter cluster IP or hostname</h4>
+        </div>
+        <form onSubmit="save_cluster_ip(); return false">
+          <div class="modal-body">
+            <p>Please enter an Isilon cluster's IP or hostname to query statistics keys via PAPI.</p>
+            <input id="text_cluster" type="text" class="form-control"
+              placeholder="cluster IP or hostname" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="modal_cluster_save">OK</button>
+          </div>
+        </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<div class="row key_main" id="{{ key_mappings[key] }}">
+  <div class="col-md-12">
+    <div class="row key-title">
+      <div class="col-md-12 key sort-key" >
+        <span class="key-name clickable">{{ key }}</span>
+        {% for tag in keys[key]['tags'] %}
+        <button type="button" class="btn btn-default btn-xs btn-tag">{{ tag }}</button>
+        {% endfor %}
+    </div>
+    </div>
+    <div class="row key_subcontents">
+      <div class="col-sm-12">
+        <table class="table table-hover key-data">
+          <tr class="key_description key_detail"><td class="col-md-3">Description</td><td class="col-md-9">{{ keys[key]['description'] }}</td></tr>
+          {% if keys[key]['xtra_attrs'] %}
+          {% for extra_attr, text in keys[key]['xtra_attrs'].items() %}
+          <tr class="key_extra_attr key_detail"><td>{{ extra_attr }}</td><td>{{ text }}</td></tr>
+          {% endfor %}
+          {% endif%}
+          <tr class="key_current_link key_detail">
+            <td>Query Platform API current</td>
+            <td><a class="papi_demo papi_demo_current" target="_blank" href="">Click to query PAPI for current data for this stat key.</a></td>
+          </tr>
+          <tr class="key_history_link key_detail">
+            <td>Query Platform API history</td>
+            <td>
+              {% if keys[key]['policies'] %}
+              <a class="papi_demo papi_demo_history" target="_blank" href="">Click to query PAPI for historic data for this stat key.</a>
+              {% else %}
+              History is not retained for this key.
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="key_type key_extra_detail"><td>Type</td><td>{{ keys[key]['type'] }}</td></tr>
+          <tr class="key_units key_extra_detail"><td>Units</td><td>{{ keys[key]['units'] }}</td></tr>
+          <tr class="key_interval_detail key_extra_detail">
+            <td>Interval Detail</td>
+            <td>
+            {% if keys[key]['policies'] %}
+              <table class="table table-hover">
+                <thead><tr><td>Interval</td><td>Persistent</td><td>Retention</td></tr></thead>
+                <tbody>
+                  {% for policy in keys[key]['policies'] %}
+                  <tr>
+                    <td>{{ policy['interval'] }} seconds</td>
+                    <td>{{ policy['persistent'] }}</td>
+                    <td>{{ policy['retention'] }} seconds</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              No interval policies defined
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="key_aggregation_type key_extra_detail"><td>Downsampling Type</td><td>{{ keys[key]['aggregation_type'] }}</td></tr>
+          <tr class="key_policy_cache_time key_extra_detail"><td>Policy Cache Time</td><td>{{ keys[key]['policy_cache_time'] }} seconds</td></tr>
+          <tr class="key_default_cache_time key_extra_detail"><td>Default Cache Time</td><td>{{ keys[key]['default_cache_time'] }} seconds</td></tr>
+          <tr class="key_scopekey_extra_detail key_extra_detail"><td>Scope</td><td>{{ keys[key]['scope'] }}</td></tr>
+        </table>
+        <a id="detail_toggle_{{ key_mappings[key] }}" role="button" class="btn btn-link key_detail_toggle">more detail...</a>
+      </div>
+    </div>
+  </div>
+</div>
