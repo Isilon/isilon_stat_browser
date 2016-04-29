@@ -6,6 +6,7 @@ function filter() {
     $('.subcontents').hide();
     $('.key_main').show()
     $('.category_main').show()
+    no_results_warn(false)
     update_toggle_icons()
     return
   }
@@ -17,6 +18,7 @@ function filter() {
   $('.subcontents').hide();
   hide_keys()
   hide_cats()
+  no_results_warn(false)
   var category_map = keyDict['mappings']['categories']
   var key_map = keyDict['mappings']['keys']
   for (i in deduped_key_matches) {
@@ -27,7 +29,6 @@ function filter() {
     show_cat(supercat)
     show_cat(subcat)
     show_cat(subsubcat)
-    console.log('Showing: ' + supercat + ' ' + subcat + ' ' + subsubcat)
 
     var supercat_subcontents = $('#' + category_map[supercat]).find('div.subcontents').first()
     $(supercat_subcontents).show()
@@ -38,5 +39,13 @@ function filter() {
     var key_id = '#' + key_map[key]
     $(key_id).show()
   }
+  if (deduped_key_matches.length == 0) {
+    no_results_warn(true)
+  }
   update_toggle_icons()
+}
+
+function reset_search() {
+  $('#text_filter').val('')
+  filter()
 }

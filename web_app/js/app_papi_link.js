@@ -20,11 +20,19 @@ function papi_link_clicked() {
   }
 }
 
+function set_cluster_ip() {
+  clicked_link = null
+  $('#modal_cluster').modal()
+}
+
 function save_cluster_ip() {
   cluster_ip = $('#text_cluster').val()
   $('#modal_cluster').modal('hide')
   update_papi_links(cluster_ip)
-  window.open($(clicked_link).attr('href'), '_blank')
+  $('#button_cluster_ip').show()
+  if (clicked_link != null) {
+    window.open($(clicked_link).attr('href'), '_blank')
+  }
 }
 
 function update_papi_links() {
@@ -35,7 +43,7 @@ function update_papi_links() {
 
 function update_papi_link(endpoint) {
   key = $(this).parentsUntil('.key_main').find('span.key-name').text()
-  link = papi_stat_link(key, endpoint, 3)
+  link = papi_stat_link(key, endpoint, 1)
   $(this).attr('href', link)
   $(this).text(link)
 }
