@@ -1,47 +1,7 @@
 [
   {
-    "Arbitrary detail one": [
-      "Extra arbitrary key attribute one added via tag defs."
-    ], 
-    "Arbitrary detail two": [
-      "Extra arbitrary key attribute two added via tag defs."
-    ], 
-    "re-keys": [
-      "^node.sensor.power"
-    ], 
-    "tags": [
-      "PSU", 
-      "power supplies"
-    ]
-  }, 
-  {
-    "Note": [
-      "This is an extra note added during tagging process."
-    ], 
-    "re-keys": [
-      "^node.sensor.altitude"
-    ], 
-    "tags": [
-      "altitude"
-    ]
-  }, 
-  {
-    "tags": [
-      "cache"
-    ], 
-    "re-keys": [
-      ".cache.l2"
-    ]
-  }, 
-  {
     "keys": [
       "node.ifs.cache"
-    ], 
-    "Arbitrary detail TWO": [
-      "Extra arbitrary key attribute TWO added via tag defs."
-    ], 
-    "Arbitrary detail": [
-      "Extra arbitrary key attribute added via tag defs."
     ], 
     "tags": [
       "InsightIQ", 
@@ -201,17 +161,6 @@
   }, 
   {
     "keys": [
-      "node.ifs.bytes.total", 
-      "node.ifs.bytes.used", 
-      "node.ifs.ssd.bytes.total", 
-      "node.ifs.ssd.bytes.used"
-    ], 
-    "tags": [
-      "ifs"
-    ]
-  }, 
-  {
-    "keys": [
       "ifs.bytes.avail", 
       "ifs.bytes.free", 
       "ifs.bytes.total", 
@@ -220,7 +169,8 @@
       "ifs.ssd.bytes.total"
     ], 
     "tags": [
-      "ifs_cluster"
+      "ifs_cluster", 
+      "InsightIQ"
     ]
   }, 
   {
@@ -239,7 +189,8 @@
       "node.ifs.heat.write"
     ], 
     "tags": [
-      "ifs_file_heat"
+      "ifs_file_heat", 
+      "InsightIQ"
     ]
   }, 
   {
@@ -258,7 +209,8 @@
       "node.ifs.heat.write.total"
     ], 
     "tags": [
-      "ifs_heat"
+      "ifs_heat", 
+      "InsightIQ"
     ]
   }, 
   {
@@ -267,7 +219,8 @@
       "node.ifs.bytes.out.rate"
     ], 
     "tags": [
-      "ifs_throughput"
+      "ifs_throughput", 
+      "InsightIQ"
     ]
   }, 
   {
@@ -275,15 +228,8 @@
       "node.je.num_workers"
     ], 
     "tags": [
-      "job"
-    ]
-  }, 
-  {
-    "re-keys": [
-      "^node.sensor"
-    ], 
-    "tags": [
-      "sensors"
+      "job", 
+      "InsightIQ"
     ]
   }, 
   {
@@ -300,7 +246,8 @@
       "node.protostats.smb2"
     ], 
     "tags": [
-      "protocol"
+      "protocol", 
+      "InsightIQ"
     ]
   }
 ]
