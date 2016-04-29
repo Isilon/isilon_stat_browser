@@ -1,5 +1,6 @@
 ###############################################################################
-# This file contains the key tagging inputs that get parsed into key_tags.json
+# This file defines tags applied to keys, as well as extra attributes and
+# values to be displayed in a key's data block.
 #
 # Stanzas are separated by 6 colons-> :::::
 # Attr keys are declared with 3 colons-> :::keyname
@@ -7,41 +8,28 @@
 # The keys and attrs will be assigned to the stat keys listed under the key named keys
 # Regex stat key name matching is also permitted.
 #
+# The tags and attributes in a stanza will be assigned to all the keys
+# that match the key selectors 'keys' and 're-keys'. 'tags' is a list
+# of tags assigned to the stanza's keys. Any other attributes in the
+# stanza are arbitrary attibutes that will appear as an additional
+# data field in the generated web app.
 #
 # -- Exact stat key name matching --
 # :::keys
-# node.sensors.key.nameß
+# node.sensors.key.name
 #
-# -- Regex stat key name matching
+# -- Regex stat key name matching --
 # :::re-keys
 # node\.sensors.tem.*
+#
+# -- Add additional data tags to keys --
+# :::re-keys
+# ^test\.
+# :::Extra Info
+# Key used for testing only.
+#
+#
 
-
-::::::
-:::tags
-PSU
-power supplies
-:::re-keys
-^node.sensor.power
-:::Arbitrary detail one
-Extra arbitrary key attribute one added via tag defs.
-:::Arbitrary detail two
-Extra arbitrary key attribute two added via tag defs.
-
-::::::
-:::tags
-altitude
-:::re-keys
-^node.sensor.altitude
-:::Note
-This is an extra note added during tagging process.
-
-
-::::::
-:::re-keys
-.cache.l2
-:::tags
-cache
 
 
 ::::::
@@ -50,10 +38,6 @@ InsightIQ
 cache
 :::keys
 node.ifs.cache
-:::Arbitrary detail
-Extra arbitrary key attribute added via tag defs.
-:::Arbitrary detail TWO
-Extra arbitrary key attribute TWO added via tag defs.
 
 
 ::::::
@@ -194,17 +178,8 @@ node.net.ext.packets.out.rate
 
 ::::::
 :::tags
-ifs
-:::keys
-node.ifs.bytes.total
-node.ifs.bytes.used
-node.ifs.ssd.bytes.total
-node.ifs.ssd.bytes.used
-
-
-::::::
-:::tags
 ifs_cluster
+InsightIQ
 :::keys
 ifs.bytes.avail
 ifs.bytes.free
@@ -217,6 +192,7 @@ ifs.ssd.bytes.total
 ::::::
 :::tags
 ifs_file_heat
+InsightIQ
 :::keys
 node.ifs.heat.blocked
 node.ifs.heat.contended
@@ -234,6 +210,7 @@ node.ifs.heat.write
 ::::::
 :::tags
 ifs_heat
+InsightIQ
 :::keys
 node.ifs.heat.blocked.total
 node.ifs.heat.contended.total
@@ -252,6 +229,7 @@ node.ifs.heat.write.total
 ::::::
 :::tags
 ifs_throughput
+InsightIQ
 :::keys
 node.ifs.bytes.in.rate
 node.ifs.bytes.out.rate
@@ -260,6 +238,7 @@ node.ifs.bytes.out.rate
 ::::::
 :::tags
 job
+InsightIQ
 :::keys
 node.je.num_workers
 
@@ -267,15 +246,8 @@ node.je.num_workers
 
 ::::::
 :::tags
-sensors
-:::re-keys
-^node.sensor
-
-
-
-::::::
-:::tags
 protocol
+InsightIQ
 :::keys
 node.protostats.ftp
 node.protostats.hdfs
