@@ -29,12 +29,12 @@
 
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <form class="form-inline" onsubmit="return false;">
+          <form class="form-inline" onsubmit="return false;" id="search_form">
             <div class="input-group">
               <div class="input-group" onSubmit="return false;">
                 <span class="input-group-addon">Search</span>
                 <input id="text_filter" type="text" class="form-control" autocomplete="off"
-                  placeholder="search keys" size="40"/>
+                  placeholder="Tip: use AND, OR to refine your search" size="40"/>
               </div>
               <div class="input-group-btn" onSubmit="return false;">
                 <button id="tagDropdown" type="button" class="btn btn-default dropdown-toggle"
@@ -89,6 +89,7 @@
                   
                 </ul>
               </div>
+              <input class="btn btn-default" type="reset" value="Reset" onclick="reset_search()">
             </div>
           </form>
         </div>
@@ -102,9 +103,18 @@
       <!-- Main key view -->
       <div class="row category_container">
         <div class="col-md-12">
+          <div class="row collapse" id="no_results_warn">
+            <div class="col-md-12">
+              <div class="row category_row">
+                <div class="col-md-12 category_head">
+                  <span class="category">No matching keys found.</span>
+                </div>
+              </div>
+            </div>
+            </div>
           
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_eda63b570db82e05c2fd7b5f0c3bb20f">
+            <div class="row category_main category_row" id="cat_eda63b570db82e05c2fd7b5f0c3bb20f">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -385,7 +395,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_eec89088ee408b80387155272b113256">
+            <div class="row category_main category_row" id="cat_eec89088ee408b80387155272b113256">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -403,7 +413,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_38edf5766d2e85e015ba44ffcda83fee">
+                    <div class="row category_main category_row" id="cat_38edf5766d2e85e015ba44ffcda83fee">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -421,7 +431,7 @@
                           <div class="col-md-11 col-md-offset-1">
                             <!-- Subsubcat BEGIN -->
                             
-                            <div class="row category_main" id="cat_ab0f7ac71926a2bdc7a53f62f017477c">
+                            <div class="row category_main category_row" id="cat_ab0f7ac71926a2bdc7a53f62f017477c">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -1410,7 +1420,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_f5dced3568ab4d01ed65936bff55e500">
+                            <div class="row category_main category_row" id="cat_f5dced3568ab4d01ed65936bff55e500">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -1720,7 +1730,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_eeaa49c5a616660378ed138a86f4f547">
+                    <div class="row category_main category_row" id="cat_eeaa49c5a616660378ed138a86f4f547">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -1738,7 +1748,7 @@
                           <div class="col-md-11 col-md-offset-1">
                             <!-- Subsubcat BEGIN -->
                             
-                            <div class="row category_main" id="cat_55b35832f3c7c674726c87b344252e12">
+                            <div class="row category_main category_row" id="cat_55b35832f3c7c674726c87b344252e12">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -2165,7 +2175,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_c0eaa18cbe2b7359618a45f352b56a07">
+                            <div class="row category_main category_row" id="cat_c0eaa18cbe2b7359618a45f352b56a07">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -2588,7 +2598,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_83f45cad5e6f535ff10e564a526baad0">
+            <div class="row category_main category_row" id="cat_83f45cad5e6f535ff10e564a526baad0">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -3011,7 +3021,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_aa6591610b53847bfb4e19e53c0b4a05">
+            <div class="row category_main category_row" id="cat_aa6591610b53847bfb4e19e53c0b4a05">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -3105,7 +3115,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_ab0cf104f39708eabd07b8cb67e149ba">
+            <div class="row category_main category_row" id="cat_ab0cf104f39708eabd07b8cb67e149ba">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -3123,7 +3133,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_fd967d8ddc38987e32b9080ea782ea74">
+                    <div class="row category_main category_row" id="cat_fd967d8ddc38987e32b9080ea782ea74">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -3954,7 +3964,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_1d0011432e7200412ffa46be0b0b0313">
+                    <div class="row category_main category_row" id="cat_1d0011432e7200412ffa46be0b0b0313">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -4226,7 +4236,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_250e3538ec2bd5cbcb8eceeaa01a3ef8">
+                    <div class="row category_main category_row" id="cat_250e3538ec2bd5cbcb8eceeaa01a3ef8">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -5098,7 +5108,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_8390487b9daa55544979ed4d76acabdb">
+                    <div class="row category_main category_row" id="cat_8390487b9daa55544979ed4d76acabdb">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -5955,7 +5965,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_a45da96d0bf6575970f2d27af22be28a">
+            <div class="row category_main category_row" id="cat_a45da96d0bf6575970f2d27af22be28a">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -5973,7 +5983,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_8619669fe79f5ff640ae182576e64297">
+                    <div class="row category_main category_row" id="cat_8619669fe79f5ff640ae182576e64297">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -6189,7 +6199,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_d9fc7567bd0919c140363b336dbcace7">
+                    <div class="row category_main category_row" id="cat_d9fc7567bd0919c140363b336dbcace7">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -7112,7 +7122,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_fe7e6426338c7757d563cec4883892d6">
+                    <div class="row category_main category_row" id="cat_fe7e6426338c7757d563cec4883892d6">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -7277,7 +7287,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_01764b3f29a19e31af2e8250ed10a869">
+                    <div class="row category_main category_row" id="cat_01764b3f29a19e31af2e8250ed10a869">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -8303,7 +8313,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_638ee15086e7895786abea515956ff0b">
+                    <div class="row category_main category_row" id="cat_638ee15086e7895786abea515956ff0b">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -8422,7 +8432,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_bdfbf6b40d91fedfb6ea07f4608f60d7">
+                    <div class="row category_main category_row" id="cat_bdfbf6b40d91fedfb6ea07f4608f60d7">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -10933,7 +10943,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_67575a4f973dd31203fd040e84c7649b">
+                    <div class="row category_main category_row" id="cat_67575a4f973dd31203fd040e84c7649b">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -11471,7 +11481,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_2a0ab00a42d2a072ca7e28c816cf02cc">
+                    <div class="row category_main category_row" id="cat_2a0ab00a42d2a072ca7e28c816cf02cc">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -11647,7 +11657,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_6c202452e44c42e323204da2a3a3c24a">
+            <div class="row category_main category_row" id="cat_6c202452e44c42e323204da2a3a3c24a">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -11665,7 +11675,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_e8c520a00de48591f716f0ff4b39714c">
+                    <div class="row category_main category_row" id="cat_e8c520a00de48591f716f0ff4b39714c">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -11683,7 +11693,7 @@
                           <div class="col-md-11 col-md-offset-1">
                             <!-- Subsubcat BEGIN -->
                             
-                            <div class="row category_main" id="cat_50c7cb3c3eddb202318c181ba550341d">
+                            <div class="row category_main category_row" id="cat_50c7cb3c3eddb202318c181ba550341d">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -12266,7 +12276,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_d695947fb41c1604b68dcfb1a3349c33">
+                            <div class="row category_main category_row" id="cat_d695947fb41c1604b68dcfb1a3349c33">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -13054,7 +13064,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_9ce24890bcf290ff27615ebb6e04cdb5">
+                            <div class="row category_main category_row" id="cat_9ce24890bcf290ff27615ebb6e04cdb5">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -13427,7 +13437,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_3762e1da1851babf50a7246253467c47">
+                            <div class="row category_main category_row" id="cat_3762e1da1851babf50a7246253467c47">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -14877,7 +14887,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_1228ebb984fbed3910a2ae681adfeec1">
+                    <div class="row category_main category_row" id="cat_1228ebb984fbed3910a2ae681adfeec1">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -14895,7 +14905,7 @@
                           <div class="col-md-11 col-md-offset-1">
                             <!-- Subsubcat BEGIN -->
                             
-                            <div class="row category_main" id="cat_80ae823eafa0293fceb5633dce1b0c95">
+                            <div class="row category_main category_row" id="cat_80ae823eafa0293fceb5633dce1b0c95">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -15528,7 +15538,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_8432808aa656666a79f2905a86210af0">
+                            <div class="row category_main category_row" id="cat_8432808aa656666a79f2905a86210af0">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -16086,7 +16096,7 @@
                               </div>
                             </div>
                             
-                            <div class="row category_main" id="cat_2a722d62cd9f5e10adedef116d2c2e99">
+                            <div class="row category_main category_row" id="cat_2a722d62cd9f5e10adedef116d2c2e99">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -16475,7 +16485,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_577d7068826de925ea2aec01dbadf5e4">
+            <div class="row category_main category_row" id="cat_577d7068826de925ea2aec01dbadf5e4">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -16493,7 +16503,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_44eacd3e5b75673b354e86126590ebf3">
+                    <div class="row category_main category_row" id="cat_44eacd3e5b75673b354e86126590ebf3">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -17488,7 +17498,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_a8a5768b812299fc5908a024bd59d719">
+                    <div class="row category_main category_row" id="cat_a8a5768b812299fc5908a024bd59d719">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -17618,7 +17628,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_607bce93fa693ff187b5350c862bf55c">
+                    <div class="row category_main category_row" id="cat_607bce93fa693ff187b5350c862bf55c">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -18307,7 +18317,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_7958c591ae6e36460ebaf10df0624b45">
+                    <div class="row category_main category_row" id="cat_7958c591ae6e36460ebaf10df0624b45">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -19313,7 +19323,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_af29aa178ae43211319e28f627e96590">
+            <div class="row category_main category_row" id="cat_af29aa178ae43211319e28f627e96590">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -19331,7 +19341,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_3cb5ea46a2a20a4c306fbae3525f6f9b">
+                    <div class="row category_main category_row" id="cat_3cb5ea46a2a20a4c306fbae3525f6f9b">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -20990,7 +21000,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_58727c97c1eac47a7d8fc28a92ce1e46">
+                    <div class="row category_main category_row" id="cat_58727c97c1eac47a7d8fc28a92ce1e46">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -21423,7 +21433,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_ee99345921c96ce954ada6b9f101540c">
+                    <div class="row category_main category_row" id="cat_ee99345921c96ce954ada6b9f101540c">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -21720,7 +21730,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_8eff98cb7b90e1b2adb9a40d8c876837">
+                    <div class="row category_main category_row" id="cat_8eff98cb7b90e1b2adb9a40d8c876837">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -24963,7 +24973,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_eedbdb92ec8fefad99423be76b7daba5">
+                    <div class="row category_main category_row" id="cat_eedbdb92ec8fefad99423be76b7daba5">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -25806,7 +25816,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_488d033978b0706646a52f87715db489">
+                    <div class="row category_main category_row" id="cat_488d033978b0706646a52f87715db489">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -26937,7 +26947,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_c02b521d88738890cb562647fced64b4">
+                    <div class="row category_main category_row" id="cat_c02b521d88738890cb562647fced64b4">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -27215,7 +27225,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_380dbc8d9d2c8a17f6ebb0b2c62d3e85">
+            <div class="row category_main category_row" id="cat_380dbc8d9d2c8a17f6ebb0b2c62d3e85">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -27233,7 +27243,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_35fb7936b1427fb839dd86838b43479b">
+                    <div class="row category_main category_row" id="cat_35fb7936b1427fb839dd86838b43479b">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -32674,7 +32684,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_76bc1515bfa72e3d5e941ce372aace03">
+                    <div class="row category_main category_row" id="cat_76bc1515bfa72e3d5e941ce372aace03">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -33131,7 +33141,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_2b55387dd066c5bac646ac61543d152d">
+            <div class="row category_main category_row" id="cat_2b55387dd066c5bac646ac61543d152d">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -33149,7 +33159,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_d4074f6205c2fa0bba44cf48d28acdc6">
+                    <div class="row category_main category_row" id="cat_d4074f6205c2fa0bba44cf48d28acdc6">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -34221,7 +34231,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_d6c51a268feacddb15fe622f804ecfb2">
+                    <div class="row category_main category_row" id="cat_d6c51a268feacddb15fe622f804ecfb2">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -34935,7 +34945,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_9985b4390c40137573e6da05caf85874">
+            <div class="row category_main category_row" id="cat_9985b4390c40137573e6da05caf85874">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -34953,7 +34963,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     
-                    <div class="row category_main" id="cat_754ea0bb55fc01d6fba5589e75db64a2">
+                    <div class="row category_main category_row" id="cat_754ea0bb55fc01d6fba5589e75db64a2">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -36982,7 +36992,7 @@
                       </div>
                     </div>
                     
-                    <div class="row category_main" id="cat_b8dfde7a72357f7ad527aaf7884cea4b">
+                    <div class="row category_main category_row" id="cat_b8dfde7a72357f7ad527aaf7884cea4b">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -38492,7 +38502,7 @@
             <!-- END SUPER CATEGORY TEMPLATE -->
             
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="cat_0d015d96f63a8c12d96b8399482b593f">
+            <div class="row category_main category_row" id="cat_0d015d96f63a8c12d96b8399482b593f">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -38615,11 +38625,19 @@
           </div>
         </div> <!-- end of main key view -->
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-3">
+            <button class="btn btn-default collapse" id="button_cluster_ip" type="submit" onclick="set_cluster_ip(); return false">Edit cluster IP</button>
+          </div>
+          <div class="col-md-9">
             <div class="text-right">
               Key list  retreived from OneFS unknown <br>
               
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
           </div>
         </div>
 
@@ -38647,11 +38665,12 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Enter cluster IP or hostname</h4>
         </div>
-        <form onSubmit="save_cluster_ip(); return false">
+        <form class="form-inline" onSubmit="save_cluster_ip(); return false">
           <div class="modal-body">
             <p>Please enter an Isilon cluster's IP or hostname to query statistics keys via PAPI.</p>
             <input id="text_cluster" type="text" class="form-control"
-              placeholder="cluster IP or hostname" />
+              placeholder="cluster IP or hostname" size="40"/>
+              <input class="btn btn-default" type="reset" value="Clear">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

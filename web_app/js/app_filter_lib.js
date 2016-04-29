@@ -15,10 +15,17 @@ function hide_cats() {
 function show_cat(category) {
   var cat_map = keyDict['mappings']['categories']
   var cat_id_selector = '#' + cat_map[category]
-  console.log('category: ' + category + ' id: ' + cat_id_selector)
   $(cat_id_selector).show()
   var el_cat_subcontents = $(cat_id_selector).find('div.subcontents').first()
   $(el_cat_subcontents).show()
+}
+
+function no_results_warn(visible) {
+  if (visible) {
+    $('#no_results_warn').show()
+  } else {
+    $('#no_results_warn').hide()
+  }
 }
 
 function cat_selector(category_name) {

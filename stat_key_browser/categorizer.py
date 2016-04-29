@@ -32,7 +32,6 @@ class Categorizer(object):
         """Return path to category definitions file."""
         basedir = stat_key_browser.__path__[0]
         defs_path = os.path.join(basedir, 'data', CAT_TAG_DEFS_FILENAME)
-        logging.info('Expect category definitions at {0}'.format(defs_path))
         return defs_path
 
     def _flatten_uni_attrs(self, defins):

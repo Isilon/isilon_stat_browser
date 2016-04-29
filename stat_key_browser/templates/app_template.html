@@ -29,12 +29,12 @@
 
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <form class="form-inline" onsubmit="return false;">
+          <form class="form-inline" onsubmit="return false;" id="search_form">
             <div class="input-group">
               <div class="input-group" onSubmit="return false;">
                 <span class="input-group-addon">Search</span>
                 <input id="text_filter" type="text" class="form-control" autocomplete="off"
-                  placeholder="search keys" size="40"/>
+                  placeholder="Tip: use AND, OR to refine your search" size="40"/>
               </div>
               <div class="input-group-btn" onSubmit="return false;">
                 <button id="tagDropdown" type="button" class="btn btn-default dropdown-toggle"
@@ -47,6 +47,7 @@
                   {% endfor %}
                 </ul>
               </div>
+              <input class="btn btn-default" type="reset" value="Reset" onclick="reset_search()">
             </div>
           </form>
         </div>
@@ -60,9 +61,18 @@
       <!-- Main key view -->
       <div class="row category_container">
         <div class="col-md-12">
+          <div class="row collapse" id="no_results_warn">
+            <div class="col-md-12">
+              <div class="row category_row">
+                <div class="col-md-12 category_head">
+                  <span class="category">No matching keys found.</span>
+                </div>
+              </div>
+            </div>
+            </div>
           {% for category, data in categories.items() %}
             <!-- BEGIN SUPER CATEGORY TEMPLATE -->
-            <div class="row category_main" id="{{ cat_mappings[category] }}">
+            <div class="row category_main category_row" id="{{ cat_mappings[category] }}">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12 category_head clickable">
@@ -80,7 +90,7 @@
                   <div class="col-md-11 col-md-offset-1">
                     <!-- Subcat BEGIN -->
                     {% for subcategory, data in categories[category]['categories'].items() %}
-                    <div class="row category_main" id="{{ cat_mappings[category + '-' + subcategory] }}">
+                    <div class="row category_main category_row" id="{{ cat_mappings[category + '-' + subcategory] }}">
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-12 category_head clickable">
@@ -98,7 +108,7 @@
                           <div class="col-md-11 col-md-offset-1">
                             <!-- Subsubcat BEGIN -->
                             {% for subsubcategory, subdata in categories[category]['categories'][subcategory]['categories'].items() %}
-                            <div class="row category_main" id="{{ cat_mappings[category + '-' + subcategory + '-' + subsubcategory] }}">
+                            <div class="row category_main category_row" id="{{ cat_mappings[category + '-' + subcategory + '-' + subsubcategory] }}">
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-12 category_head clickable">
@@ -151,13 +161,21 @@
           </div>
         </div> <!-- end of main key view -->
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-3">
+            <button class="btn btn-default collapse" id="button_cluster_ip" type="submit" onclick="set_cluster_ip(); return false">Edit cluster IP</button>
+          </div>
+          <div class="col-md-9">
             <div class="text-right">
               Key list  retreived from OneFS {{ cluster['release'] }} <br>
               {% if cluster['host'] != None %}
               at {{ cluster['host'] }}
               {% endif %}
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
           </div>
         </div>
 
@@ -185,11 +203,12 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Enter cluster IP or hostname</h4>
         </div>
-        <form onSubmit="save_cluster_ip(); return false">
+        <form class="form-inline" onSubmit="save_cluster_ip(); return false">
           <div class="modal-body">
             <p>Please enter an Isilon cluster's IP or hostname to query statistics keys via PAPI.</p>
             <input id="text_cluster" type="text" class="form-control"
-              placeholder="cluster IP or hostname" />
+              placeholder="cluster IP or hostname" size="40"/>
+              <input class="btn btn-default" type="reset" value="Clear">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
