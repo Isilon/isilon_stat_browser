@@ -8,9 +8,9 @@ Python 2.7 or 3.5
 ##Installation
 You can obtain the files for the stat browser by cloning this Github repository:
 
-`git clone git@<github-repository-url>.git`
+`git clone git@github.com/isilon/isilon_stat_browser.git`
 
-or by downloading the stat_key_browser zip file through the "Download ZIP" link and extracting the files.
+or by downloading the isilon_stat_browser zip file through the "Download ZIP" link and extracting the files.
 
 `unzip <branch-name>.zip`
 
