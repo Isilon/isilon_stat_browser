@@ -1,0 +1,14 @@
+.DS_Store
+*.pyc
+stat_key_browser.egg-info
+build
+dist
+env
+.coverage
+keys.json
+.cache
+app.html
+stat_key_browser/data/key_cats.json
+stat_key_browser/data/key_tags.json
+web_app/js/keys.js
+web_app/index.html

@@ -1,0 +1,17 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+
+virtualenv:
+  system_site_packages: false
+
+install:
+  - pip install -r requirements-dev.txt
+  - git clone https://github.com/Isilon/isilon_sdk_7_2_python.git
+  - cd isilon_sdk_7_2_python
+  - python setup.py install
+  - cd ..
+
+script:
+  - make travis-ci

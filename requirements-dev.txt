@@ -1,0 +1,6 @@
+future>=0.15.2
+pytest>=2.9.1
+pytest-cov>=2.2.1
+mock>=2.0.0
+jinja2>=2.8
+pylint>=1.5.5

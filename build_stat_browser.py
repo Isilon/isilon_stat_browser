@@ -38,8 +38,7 @@ def build_browser():
     (opts, args) = parser.parse_args()
 
     if opts.cluster is None:
-        print('--cluster <IP> is required')
-        sys.exit(1)
+        opts.cluster = input('Cluster IP or hostname: ')
 
     if opts.debug:
         log_lvl = logging.DEBUG
