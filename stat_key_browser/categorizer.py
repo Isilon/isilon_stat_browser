@@ -4,10 +4,11 @@ Provide access to the category definitions and utilities.
 Reads and parses into a dict the json category def file. Provides access to this dict.
 Takes a key_dict and applies category attributes per the tag definitions.
 """
-import os
 import logging
 import json
+import os
 import re
+import sys
 import stat_key_browser
 
 CAT_TAG_DEFS_FILENAME = 'key_cats.json'
@@ -23,8 +24,14 @@ class Categorizer(object):
         """Instantiate a Categorizer."""
         self.default_category = DEFAULT_CATEGORY
         if defs is None:
-            with open(self._get_defs_path(), 'r') as def_file:
-                defs = json.load(def_file)
+            def_path = self._get_defs_path()
+            try:
+                with open(def_path, 'r') as def_file:
+                    defs = json.load(def_file)
+            except IOError as err:
+                logging.error('Unable to open {0}: {1}'.format(def_path, err))
+                logging.error("Try running 'make tags' to create the categories file")
+                sys.exit(1)
         self.validate_defs(defs)
         self.cat_defs = self._flatten_uni_attrs(defs)
 

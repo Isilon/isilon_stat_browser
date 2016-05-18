@@ -4,10 +4,11 @@ Provide access to the tag definitions and utilities.
 Reads and parses into a dict the json tag def file. Provides access to this dict.
 Takes a key_dict and applies tags per the tag definations.
 """
-import os
 import logging
 import json
+import os
 import re
+import sys
 import stat_key_browser
 
 KEY_TAG_DEFS_FILENAME = 'key_tags.json'
@@ -22,8 +23,14 @@ def dedupe_list(l):
 class Tagger(object):
     def __init__(self, defs=None):
         if defs is None:
-            with open(self.get_defs_path(), 'r') as def_file:
-                defs = json.load(def_file)
+            def_path = self.get_defs_path()
+            try:
+                with open(def_path, 'r') as def_file:
+                    defs = json.load(def_file)
+            except IOError as err:
+                logging.error('Unable to open {0}: {1}'.format(def_path, err))
+                logging.error("Try running 'make tags' to create the tag file")
+                sys.exit(1)
         self.tag_defs = defs
 
     def _add_tags(self, key, tags):

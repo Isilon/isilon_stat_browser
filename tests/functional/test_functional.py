@@ -1,1 +1,1 @@
-assert False, 'Oops.'
+pass
