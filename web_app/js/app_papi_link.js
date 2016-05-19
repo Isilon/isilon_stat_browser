@@ -61,7 +61,7 @@ function papi_stat_link(key, endpoint, papi_vers) {
   key = antisquash_key(key)
   server = 'https://' + cluster_ip + ':8080'
   uri = '/platform/' + papi_vers + '/statistics/'
-  uri += endpoint + '?keys=' + key
+  uri += endpoint + '?key=' + key
   link = server + encodeURI(uri)
   return link
 }
