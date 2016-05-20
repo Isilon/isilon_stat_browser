@@ -4,6 +4,8 @@ PYLINT=`which pylint`
 HEXAPARSE=./hexaparse.py
 
 DIST_DIR=dist
+BROWSER_VERS_STRING=`git describe --exact-match --abbrev=0 || git rev-parse --short HEAD`
+
 
 clean:
 	-rm -rf $(DIST_DIR)
@@ -44,4 +46,4 @@ dist: check_cluster clean unittests tags
 	cp README.md $(DIST_DIR)
 	cp -r stat_key_browser $(DIST_DIR)
 	cp -r web_app $(DIST_DIR)
-	zip -r isilon_stat_browser_$$(git describe --exact-match --abbrev=0).zip dist/*
+	zip -r isilon_stat_browser_$(BROWSER_VERS_STRING).zip dist/*
