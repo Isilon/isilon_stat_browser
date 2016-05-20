@@ -2,11 +2,11 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/isilon/isilon_stat_browser.svg)](http://isitmaintained.com/project/isilon/isilon_stat_browser "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/isilon/isilon_stat_browser.svg)](http://isitmaintained.com/project/isilon/isilon_stat_browser "Percentage of issues still open")
 
-#stat-key-browser
+#Statistics Key Browser Development
 
 A single page web app that provides a browsable, searchable view of Isilon statistics keys. A Python script generates the html by querying an Isilon cluster for the list of statistics keys, then organizing and categorizing the keys before outputting the html app to web_app.
 
-##requirements
+##Requirements
 Python: 2.7, 3.3, 3.4, 3.5
 
 Dependencies listed in requirements-dev.txt
@@ -27,24 +27,13 @@ Isilon SDK Python language bindings
 
 `pip install -r requirements-dev.txt`
 
-### Build the html and js output in ./webapp:
-
-`./build_stat_browser`
-
-### Build a distributable zip file:
-The build will pause to request cluster IP, username and password.
-
-`make dist`
-
-### Build a distributable zip file non-interactively:
-
-Supply the cluster IP, username and password when building via automation.
-
-`make dist BUILD_BROWSER_ARGS='-c <cluster IP> -u <username> -p <password>'`
-
 ### Run unit tests:
 
 `make unittests`
+
+### Check unit test coverage:
+
+`make coverage`
 
 ### Run functional tests:
 The functional tests are only a stub currently.
@@ -54,6 +43,17 @@ The functional tests are only a stub currently.
 ###Run the page building tool
 
 `./build_stat_browser.py -c <cluster IP>`
+
+### Generate a distributable zip file:
+The build will pause to request cluster IP, username and password.
+
+`make dist`
+
+### Generate a distributable zip file non-interactively:
+
+Supply the cluster IP, username and password when building via automation.
+
+`make dist BUILD_BROWSER_ARGS='-c <cluster IP> -u <username> -p <password>'`
 
 # Release process
 

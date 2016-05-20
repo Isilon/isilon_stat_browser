@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 """
-Parse a hexa key/lists-of-values doc into a dict.
+Parse a hexa key/lists-of-values doc into a list of dicts.
+
+Each list item is a dict. The contain lists referenced by keyname.
 
 -Input-
 ::::::
@@ -27,6 +29,7 @@ import re
 import logging
 import pytest
 
+
 def is_new_block(line):
     """Determine whether a string marks a new block."""
     if re.match('::::::$', line):
@@ -43,6 +46,7 @@ def is_key(line):
             return True
     else:
         return False
+
 
 def is_comment(line):
     """Determine whether a string is a key."""
