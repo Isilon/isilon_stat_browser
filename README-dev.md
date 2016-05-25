@@ -41,6 +41,11 @@ The functional tests are only a stub currently.
 `make functional_tests`
 
 ###Run the page building tool
+First, convert the tagging data to JSON. This step creates stat\_key\_browser/data/key\_tags.json and stat\_key\_browser/data/key\_cats.json
+
+`make tags`
+
+Then run the browser builder:
 
 `./build_stat_browser.py -c <cluster IP>`
 
@@ -69,8 +74,6 @@ with a version number.
 Push the tag to git
 
 `git push origin v0.0.1`
-
-This creates a release in [isilon\_stat\_browser/releases](../../releases)
 
 Create the distribution for release
 
