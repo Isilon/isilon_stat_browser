@@ -4,7 +4,7 @@ PYLINT=`which pylint`
 HEXAPARSE=./hexaparse.py
 
 DIST_DIR=dist
-BROWSER_VERS_STRING=`git describe --exact-match --abbrev=0 || git rev-parse --short HEAD`
+BROWSER_VERS_STRING=`git describe --tags --exact-match --abbrev=0 || git rev-parse --short HEAD`
 
 
 clean:
